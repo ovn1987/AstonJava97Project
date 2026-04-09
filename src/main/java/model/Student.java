@@ -1,5 +1,7 @@
 package model;
 
+import validator.StudentValidator;
+
 import java.util.Objects;
 
 public class Student {
@@ -87,7 +89,13 @@ public class Student {
         }
 
         public Student build() {
-            return new Student(this);
+            Student student = new Student(this);
+            if (!StudentValidator.validate(student)) {
+                StringBuilder errorMsg = new StringBuilder();
+                StudentValidator.validateWithMessage(student, errorMsg);
+                throw new IllegalArgumentException("Ошибка создания студента: " + errorMsg);
+            }
+            return student;
         }
 
     }
