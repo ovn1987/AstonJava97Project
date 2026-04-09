@@ -11,13 +11,13 @@ public class ExcludeOddStudentSortingStrategy extends BasicStudentSortingStrateg
             case StudentField.GROUP_NUMBER -> {return instance.getGroupNumber();}
             case StudentField.AVERAGE_SCORE -> {return instance.getAverageScore();}
             case StudentField.RECORD_STUDENT_BOOK_NUMBER -> {return instance.getRecordStudentBookNumber();}
-            default -> {throw new RuntimeException("Unsupported argument value");}
+            default -> {throw new RuntimeException("Аргумент field должен быть числовым полем.");}
         }
     }
     @Override
     public void sort(List<Student> students, StudentField fieldToSortBy) {
         if(!fieldToSortBy.isNumeric()){
-            throw new IllegalArgumentException("Student field to sort by should be numeric.");
+            throw new IllegalArgumentException("Аргумент fieldToSortBy должен быть числовым полем.");
         }
         List<Student> studentsToSort = new ArrayList<>();
         for(Student student: students){

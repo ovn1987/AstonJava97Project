@@ -13,7 +13,7 @@ public class StudentSorter {
 
     public static void sort(List<Student> students, StudentField fieldToSortBy){
         if (studentSortingStrategy == null){
-            throw new IllegalStateException("Sorting strategy is not selected.");
+            throw new IllegalStateException("Не выбрана стратегия сортировки.");
         }
         studentSortingStrategy.sort(students, fieldToSortBy);
     }
