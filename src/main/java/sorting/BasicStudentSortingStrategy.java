@@ -27,7 +27,6 @@ public class BasicStudentSortingStrategy extends StudentSortingStrategy{
         List<Student> leftList = List.copyOf(students.subList(startIndex, middleIndex+1));
         List<Student> rightList = List.copyOf(students.subList(middleIndex+1, endIndex+1));
 
-
         int leftPointer = 0;
         int rightPointer = 0;
         int sortedListPointer = startIndex;
