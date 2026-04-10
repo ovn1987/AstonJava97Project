@@ -14,7 +14,11 @@ import java.util.stream.Collectors;
 // Ожидает формат строки: ФИО,номер группы,средний балл,номер зачётки
 public class FileFiller implements DataFiller {
 
-    private static final String FILE_NAME = "students.txt";
+    private final String FILE_NAME;
+
+    public FileFiller(String FILE_NAME) {
+        this.FILE_NAME = FILE_NAME;
+    }
 
     @Override
     public List<Student> fill(int size) {
