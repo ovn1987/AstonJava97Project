@@ -12,6 +12,10 @@ public class StudentSorter {
     }
 
     public static void sort(List<Student> students, StudentField fieldToSortBy){
+        if (students == null){
+            throw new NullPointerException("Невозможно выполнить сортировку, " +
+                    "поскольку значение null было передано в качесвте аргумента students.");
+        }
         if (studentSortingStrategy == null){
             throw new IllegalStateException("Не выбрана стратегия сортировки.");
         }

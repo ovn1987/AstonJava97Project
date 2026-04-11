@@ -1,5 +1,6 @@
 package sorting;
 
+import filler.FileFiller;
 import model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,28 +8,34 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExcludeOddStudentSortingStrategyTest extends StudentSortingStrategyTest{
-    @Override
-    protected StudentSortingStrategy getStrategy() {
-        return new ExcludeOddStudentSortingStrategy();
-    }
-
-    @Override
-    protected List<Student> getExpectedList() {
-        List<Student> listToSort = getListToSort();
-        return List.of(listToSort.get(3),
-                listToSort.get(1),
-                listToSort.get(2),
-                listToSort.get(4),
-                listToSort.get(0));
-    }
-
+public class ExcludeOddStudentSortingStrategyTest{
     @Test
-    void testSortingByNonNumericFieldThrowsException(){
-        StudentSorter.setStudentSortingStrategy(getStrategy());
-        List<Student> list = new ArrayList<>();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            StudentSorter.sort(list, StudentField.FULL_NAME);
-        });
+    void testSort(){
+        FileFiller filler = new FileFiller("sorting/students.txt");
+        List<Student> students = filler.fill(0);
+        filler = new FileFiller("sorting/exclude_odd_strategy_expected_students.txt");
+        List<Student> expectedStudents = filler.fill(0);
+        StudentSorter.setStudentSortingStrategy(new ExcludeOddStudentSortingStrategy());
+        StudentSorter.sort(students, StudentField.GROUP_NUMBER);
+        Assertions.assertIterableEquals(students, expectedStudents);
+    }
+    @Test
+    void testSortAllOdd(){
+        FileFiller filler = new FileFiller("sorting/only_odd_students.txt");
+        List<Student> students = filler.fill(0);
+        List<Student> expectedStudents = List.copyOf(students);
+        StudentSorter.setStudentSortingStrategy(new ExcludeOddStudentSortingStrategy());
+        StudentSorter.sort(students, StudentField.GROUP_NUMBER);
+        Assertions.assertIterableEquals(students, expectedStudents);
+    }
+    @Test
+    void testSortAllEven(){
+        FileFiller filler = new FileFiller("sorting/only_even_students.txt");
+        List<Student> students = filler.fill(0);
+        filler = new FileFiller("sorting/exclude_odd_strategy_expected_only_even_students.txt");
+        List<Student> expectedStudents = filler.fill(0);
+        StudentSorter.setStudentSortingStrategy(new ExcludeOddStudentSortingStrategy());
+        StudentSorter.sort(students, StudentField.GROUP_NUMBER);
+        Assertions.assertIterableEquals(students, expectedStudents);
     }
 }
