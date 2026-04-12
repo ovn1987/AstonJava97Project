@@ -10,6 +10,12 @@ import java.util.concurrent.Future;
 
 public class StudentFrequency {
     public static int getStudentFrequencyConcurrently(List<Student> students, Student student){
+        if (students == null){
+            throw new NullPointerException("Аргумент students не должен пыть null.");
+        }
+        if (students.isEmpty()){
+            return 0;
+        }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         int amountOfSubtasks = Math.min(students.size(), availableProcessors);
         List<Future<Integer>> results = new ArrayList<>();
