@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Класс для записи результатов в файл в режиме добавления
+ */
 public class FileAppender {
 
     private String fileName;
@@ -16,6 +19,10 @@ public class FileAppender {
         this.fileName = fileName;
     }
 
+    /**
+     * Запись в файл списка объектов
+     * @param list
+     */
     public void write(List list) {
         try (FileWriter fileWriter = new FileWriter(fileName, true)) {
             fileWriter.write(sdf.format(new Date()) + "\n");
@@ -27,6 +34,10 @@ public class FileAppender {
         }
     }
 
+    /**
+     * Запись в файл строки
+     * @param s
+     */
     public void write(String s) {
         try (FileWriter fileWriter = new FileWriter(fileName, true)) {
             fileWriter.write(sdf.format(new Date()) + "\n");

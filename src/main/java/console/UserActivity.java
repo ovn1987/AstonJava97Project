@@ -15,14 +15,23 @@ import sorting.StudentSorter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Класс для взаимодействия с пользователем
+ */
 public class UserActivity {
 
+    // Сканнер консоли
     private Scanner scanner = new Scanner(System.in);
 
+    // Кастомный список студентов (может обновляться)
     private List<Student> list = new List<>();
 
+    // инструмент для ДОБАВЛЕНИЯ результатов в файл
     private FileAppender fileAppender = new FileAppender("results.txt");
 
+    /**
+     * Главный метод взаимодействия с пользователем
+     */
     public void interactWithUser() {
         int answer = -1;
         while (answer != 0) {

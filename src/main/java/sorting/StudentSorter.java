@@ -3,6 +3,9 @@ package sorting;
 import model.Student;
 import collection.List;
 
+/**
+ * Класс, осуществляющий сортировку с помощью той или иной стратегии
+ */
 public class StudentSorter {
     private static StudentSortingStrategy studentSortingStrategy;
 

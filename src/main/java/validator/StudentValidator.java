@@ -4,6 +4,9 @@ import model.Student;
 
 import java.math.BigDecimal;
 
+/**
+ * Класс-валидатор студента
+ */
 public final class StudentValidator {
 
     // Константы параметров студентов

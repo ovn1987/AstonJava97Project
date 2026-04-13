@@ -8,16 +8,23 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import collection.List;
 
-// Заполнитель коллекции из текстового файла
-// Ожидает формат строки: ФИО,номер группы,средний балл,номер зачётки
+/**
+ * Заполнитель коллекции из текстового файла. Заполняет с ипользованием Stream
+ */
 public class FileFiller extends ParseFiller {
 
+    // Имя файла
     private final String FILE_NAME;
 
     public FileFiller(String FILE_NAME) {
         this.FILE_NAME = FILE_NAME;
     }
 
+    /**
+     * Метод получения студентов из файла определенного формата
+     * @param size желаемое количество студентов
+     * @return кастомный список студентов
+     */
     @Override
     public List<Student> fill(int size) {
         List<Student> students = new List<>();

@@ -7,6 +7,10 @@ import collection.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+/**
+ * Заполнитель псевдослучайный
+ * Заполняет с использованием Stream
+ */
 public class RandomFiller implements DataFiller {
 
     private static final double DOUBLE_LAST_NAME_PROB = 0.2;   // 20% на двойную фамилию

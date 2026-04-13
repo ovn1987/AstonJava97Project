@@ -4,6 +4,10 @@ import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
 
+/**
+ * Кастомная коллекция (список)
+ * @param <T>
+ */
 public class List<T> extends AbstractList<T> {
     private int capacity = 100;
     private Object[] arr = new Object[capacity];

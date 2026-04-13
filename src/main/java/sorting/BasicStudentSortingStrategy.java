@@ -5,6 +5,9 @@ import model.Student;
 import java.util.Comparator;
 import collection.List;
 
+/**
+ * Базовая сортировка
+ */
 public class BasicStudentSortingStrategy extends StudentSortingStrategy{
     private Comparator<Student> comparator;
     @Override

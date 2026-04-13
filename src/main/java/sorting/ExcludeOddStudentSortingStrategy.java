@@ -4,6 +4,9 @@ import model.Student;
 
 import collection.List;
 
+/**
+ * Сортировка только четных значений
+ */
 public class ExcludeOddStudentSortingStrategy extends BasicStudentSortingStrategy {
     private double getNumericFieldValue(Student instance, StudentField field){
         switch (field){
