@@ -4,6 +4,10 @@ import validator.StudentValidator;
 
 import java.util.Objects;
 
+/**
+ * Кастомный класс Студент
+ * Внутренним классом содержит построитель (Builder)
+ */
 public class Student {
     private final String fullName;
     private final int groupNumber;

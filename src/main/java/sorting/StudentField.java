@@ -1,5 +1,9 @@
 package sorting;
 
+/**
+ * Enumeration "поле класса Студент"
+ * (параметр сортировки)
+ */
 public enum StudentField {
     FULL_NAME,
     GROUP_NUMBER,

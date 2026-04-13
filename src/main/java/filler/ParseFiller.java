@@ -2,8 +2,17 @@ package filler;
 
 import model.Student;
 
+/**
+ * Абстрактный класс - предок заполнителей, которые будут распарсивать строки и получать из них студентов
+ * Ожидает формат строки: ФИО,номер группы,средний балл,номер зачётки
+ */
 public abstract class ParseFiller implements DataFiller {
-    
+
+    /**
+     * Анализ строки определённого формата для получения студента из нее
+     * @param line строка ожидаемого формата
+     * @return студент - результат парсинга
+     */
     protected Student parseStudent(String line) {
         String[] parts = line.split(",");
         if (parts.length != 4) {

@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /**
- * Класс, заполняющий список объектами, которые вводятся с консоли
+ * Класс, заполняющий (через Stream) кастомный список студентами, которые вводятся с консоли
  */
 public class ConsoleFiller extends ParseFiller {
 
@@ -32,6 +32,10 @@ public class ConsoleFiller extends ParseFiller {
                 .collect(List::new, List::add, List::addAll);
     }
 
+    /**
+     * Чтение одного студента с консоли
+     * @return полученный студент
+     */
     private Student readStudent() {
         System.out.println("Введите студента в формате ФИО,Номер_группы,Средний_балл,Номер_зачетной_книжки");
         String line = scanner.nextLine();

@@ -6,6 +6,9 @@ import collection.List;
 import java.util.Comparator;
 import java.util.HashMap;
 
+/**
+ * Стратегия сортировки - абстрактный класс
+ */
 public abstract class StudentSortingStrategy {
     private HashMap<StudentField, Comparator<Student>> comparators;
     public StudentSortingStrategy(){
@@ -20,5 +23,11 @@ public abstract class StudentSortingStrategy {
     protected Comparator<Student> getComparator(StudentField field){
         return comparators.get(field);
     }
+
+    /**
+     * Абстрактный метод сортировки
+     * @param students
+     * @param fieldToSortBy
+     */
     public abstract void sort(List<Student> students, StudentField fieldToSortBy);
 }
