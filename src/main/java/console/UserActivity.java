@@ -4,6 +4,7 @@ import filler.ConsoleFiller;
 import filler.FileFiller;
 import filler.RandomFiller;
 import collection.List;
+import io.FileAppender;
 import model.Student;
 import sorting.BasicStudentSortingStrategy;
 import sorting.ExcludeOddStudentSortingStrategy;
@@ -18,11 +19,17 @@ public class UserActivity {
 
     private List<Student> list = new List<>();
 
+    private FileAppender fileAppender = new FileAppender("results.txt");
+
     public void interactWithUser() {
         int answer = -1;
         while (answer != 0) {
-            System.out.println("Список студентов: ");
-            list.stream().forEach(System.out::println);
+            if (list.isEmpty()) {
+                System.out.println("Список студентов пуст");
+            } else {
+                System.out.println("Список студентов: ");
+                list.stream().forEach(System.out::println);
+            }
             System.out.println();
             answer = -1;
             while (answer < 0 || answer > 2) {
@@ -48,8 +55,9 @@ public class UserActivity {
                 StudentSorter.setStudentSortingStrategy(answerSortType == 8 ?
                         new ExcludeOddStudentSortingStrategy() : new BasicStudentSortingStrategy());
                 StudentSorter.sort(list, StudentField.values()[answerSort - 3]);
-//                System.out.println("Отсортированный список:");
-//                list.stream().forEach(System.out::println);
+                if (!list.isEmpty()) {
+                    fileAppender.write(list); // добавление результата сортировки в файл
+                }
             } else if (answer == 2) {
                 int count = -1;
                 while (count < 0) {
