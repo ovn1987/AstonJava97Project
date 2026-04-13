@@ -2,8 +2,7 @@ package sorting;
 
 import model.Student;
 
-import java.util.ArrayList;
-import java.util.List;
+import collection.List;
 
 public class ExcludeOddStudentSortingStrategy extends BasicStudentSortingStrategy {
     private double getNumericFieldValue(Student instance, StudentField field){
@@ -19,7 +18,7 @@ public class ExcludeOddStudentSortingStrategy extends BasicStudentSortingStrateg
         if(!fieldToSortBy.isNumeric()){
             throw new IllegalArgumentException("Аргумент fieldToSortBy должен быть числовым полем.");
         }
-        List<Student> studentsToSort = new ArrayList<>();
+        List<Student> studentsToSort = new List<>();
         for(Student student: students){
             if (getNumericFieldValue(student, fieldToSortBy) % 2 == 0){
                 studentsToSort.add(student);

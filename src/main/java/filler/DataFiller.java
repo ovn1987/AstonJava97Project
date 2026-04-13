@@ -2,7 +2,7 @@ package filler;
 
 import model.Student;
 
-import java.util.List;
+import collection.List;
 
 public interface DataFiller {
     List<Student> fill(int size);

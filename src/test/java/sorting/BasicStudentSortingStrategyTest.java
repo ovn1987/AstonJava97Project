@@ -5,8 +5,7 @@ import model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import collection.List;
 
 public class BasicStudentSortingStrategyTest{
     @Test
@@ -26,9 +25,9 @@ public class BasicStudentSortingStrategyTest{
                 4.3,
                 112233)
                 .build();
-        List<Student> list = new ArrayList<>();
+        List<Student> list = new List<>();
         list.add(student);
-        List<Student> expectedList = new ArrayList<>();
+        List<Student> expectedList = new List<>();
         expectedList.add(student);
         StudentSorter.setStudentSortingStrategy(new BasicStudentSortingStrategy());
         StudentSorter.sort(list, StudentField.GROUP_NUMBER);
@@ -36,8 +35,8 @@ public class BasicStudentSortingStrategyTest{
     }
     @Test
     void testSortEmptyCollection(){
-        List<Student> list = new ArrayList<>();
-        List<Student> expectedList = new ArrayList<>();
+        List<Student> list = new List<>();
+        List<Student> expectedList = new List<>();
         StudentSorter.setStudentSortingStrategy(new BasicStudentSortingStrategy());
         StudentSorter.sort(list, StudentField.GROUP_NUMBER);
         Assertions.assertIterableEquals(list, expectedList);

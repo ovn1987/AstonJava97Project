@@ -3,8 +3,7 @@ package filler;
 import model.Student;
 import validator.StudentValidator;
 
-import java.util.ArrayList;
-import java.util.List;
+import collection.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -12,7 +11,7 @@ public class RandomFiller implements DataFiller {
 
     private static final double DOUBLE_LAST_NAME_PROB = 0.2;   // 20% на двойную фамилию
     private static final double NO_PATRONYM_PROB = 0.2;       // 20% без отчества
-    private static final int MAX_ATTEMPTS_FACTOR = 3;         // множитель для генерации с запасом
+    //private static final int MAX_ATTEMPTS_FACTOR = 3;         // множитель для генерации с запасом
 
     private final Random random = new Random();
 
@@ -46,14 +45,14 @@ public class RandomFiller implements DataFiller {
     @Override
     public List<Student> fill(int size) {
         if (size <= 0) {
-            return new ArrayList<>();
+            return new List<>();
         }
         //  Генерация с запасом
         return IntStream.iterate(0, i -> i + 1)
                 .mapToObj(i -> generateStudent())
                 .filter(StudentValidator::validate)
                 .limit(size)
-                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+                .collect(List::new, List::add, List::addAll);
     }
 
     private Student generateStudent() {

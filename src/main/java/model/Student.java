@@ -35,7 +35,9 @@ public class Student {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
         return groupNumber == student.groupNumber && Double.compare(averageScore, student.averageScore) == 0 && recordStudentBookNumber == student.recordStudentBookNumber && Objects.equals(fullName, student.fullName);
     }

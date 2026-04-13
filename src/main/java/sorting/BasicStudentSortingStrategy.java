@@ -3,7 +3,7 @@ package sorting;
 import model.Student;
 
 import java.util.Comparator;
-import java.util.List;
+import collection.List;
 
 public class BasicStudentSortingStrategy extends StudentSortingStrategy{
     private Comparator<Student> comparator;

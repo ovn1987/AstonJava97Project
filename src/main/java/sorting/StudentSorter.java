@@ -1,8 +1,7 @@
 package sorting;
 
 import model.Student;
-
-import java.util.List;
+import collection.List;
 
 public class StudentSorter {
     private static StudentSortingStrategy studentSortingStrategy;
@@ -14,7 +13,7 @@ public class StudentSorter {
     public static void sort(List<Student> students, StudentField fieldToSortBy){
         if (students == null){
             throw new NullPointerException("Невозможно выполнить сортировку, " +
-                    "поскольку значение null было передано в качесвте аргумента students.");
+                    "поскольку значение null было передано в качестве аргумента students.");
         }
         if (studentSortingStrategy == null){
             throw new IllegalStateException("Не выбрана стратегия сортировки.");

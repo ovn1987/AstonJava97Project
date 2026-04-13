@@ -5,8 +5,7 @@ import model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import collection.List;
 
 public class ExcludeOddStudentSortingStrategyTest{
     @Test

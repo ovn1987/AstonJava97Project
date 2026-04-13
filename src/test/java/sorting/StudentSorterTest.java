@@ -3,13 +3,13 @@ package sorting;
 import model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-import java.util.List;
+import collection.List;
 
 public class StudentSorterTest {
     @Test
     void testSortingWithoutSettingStrategyThrowsException(){
-        List<Student> students = new ArrayList<>();
+        List<Student> students = new List<>();
+        StudentSorter.setStudentSortingStrategy(null);
         Assertions.assertThrows(IllegalStateException.class, () ->
                 StudentSorter.sort(students, StudentField.GROUP_NUMBER));
     }

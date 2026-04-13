@@ -1,10 +1,10 @@
 package sorting;
 
 import model.Student;
+import collection.List;
 
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 
 public abstract class StudentSortingStrategy {
     private HashMap<StudentField, Comparator<Student>> comparators;
