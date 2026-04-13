@@ -19,6 +19,9 @@ public abstract class ParseFiller implements DataFiller {
         } catch (NumberFormatException e) {
             System.err.println("Ошибка чисел в строке: " + line);
             return null;
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+            return null;
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.concurrent.Future;
 public class StudentFrequency {
     public static int getStudentFrequencyConcurrently(List<Student> students, Student student){
         if (students == null){
-            throw new NullPointerException("Аргумент students не должен пыть null.");
+            throw new NullPointerException("Аргумент students не должен быть null.");
         }
         if (students.isEmpty()){
             return 0;
